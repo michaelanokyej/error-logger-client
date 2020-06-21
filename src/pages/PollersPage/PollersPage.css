@@ -1,0 +1,82 @@
+.pollerPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 1200px;
+}
+
+.pollerPage h1 {
+  color: rgb(77, 136, 214);
+  font-size:  2rem;
+  padding: 4px;
+  width: 60%;
+  border-radius: 10px;
+}
+
+.pollerPage ul {
+  margin: 0 auto;
+  width: 100%;
+  padding: 4px;
+}
+
+.pollerPage ul li{
+  background: rgb(229, 233, 238);
+}
+
+.poller {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* width: 100%;
+  border: 1px solid rgb(77, 136, 214);
+  padding: 16px;
+  margin-bottom: 2px; */
+  list-style: none;
+  padding: 8px;
+  border-left: 4px solid rgb(77, 136, 214);
+  background: rgb(229, 233, 238);
+  margin: 0px 0px 10px 0px;
+}
+
+.poller-details {
+  width: 100%;
+}
+
+.poller-details p {
+  font-size:  1rem;
+  padding: 4px;
+  color: black;
+}
+
+
+
+.poller-details p span {
+  color: rgb(77, 136, 214);
+  margin-right: 4px;
+  font-size:  1rem;
+  padding: 2px;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.poller a button {
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  width: 8rem;
+  height: 2rem;
+  background: rgb(77, 136, 214);
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+.poller a button:hover, .poller a button:focus {
+  background: rgb(109, 136, 172);
+  color: rgb(255, 255, 255);
+}
+
+.poller a button:active {
+  outline: none;
+}

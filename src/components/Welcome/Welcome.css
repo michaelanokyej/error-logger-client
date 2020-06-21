@@ -1,0 +1,40 @@
+.welcome__div {
+  width: 80vw;
+  height: 20vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.welcome__div h1 {
+  text-align: center;
+}
+
+.welcome__div-controls {
+  display: flex;
+  justify-content: center;
+}
+
+.welcome__div button {
+  width: 6rem;
+  height: 3rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  background: rgb(77, 136, 214);
+  color: whitesmoke;
+  cursor: pointer;
+  align-self: center;
+  margin: 0 5px;
+}
+
+.welcome__div button:active, 
+.welcome__div button:hover
+{
+  background: rgb(85, 116, 158);
+}
+
+.welcome__div button:focus {
+  outline: none;
+}

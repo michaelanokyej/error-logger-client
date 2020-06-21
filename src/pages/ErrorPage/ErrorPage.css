@@ -1,0 +1,111 @@
+.error__page {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.error__page-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.error__page-header-title {
+  font-weight: 900;
+  align-self: center;
+}
+
+.error__page-header-button {
+  height: 2rem;
+  background: rgb(77, 136, 214);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.error__page-header-button:focus,
+.error__page-header-button:hover,
+.error__page-header-button:active {
+  background: rgb(109, 136, 172);
+  color: rgb(255, 255, 255);
+  outline: none;
+}
+
+.poller__errors-list {
+  margin: 0;
+  padding: 8px;
+  width: 100%;
+  text-align: center;
+  -moz-box-shadow:    inset 0 0 10px #000000;
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 10px #000000;
+}
+
+.poller__errors-list li {
+  list-style: none;
+  width: 95%;
+  margin: 0 auto;
+  padding: 8px;
+  border: 5px outset rgb(77, 136, 214);
+}
+
+.poller__errors-list li:nth-child(odd) {
+  background-color: rgb(222, 232, 236);
+}
+
+.poller__errors-list li:nth-child(even) {
+  background-color: rgb(176, 189, 197);
+}
+
+.poller-header a {
+  text-decoration: none;
+  color: rgb(77, 136, 214);
+  cursor: pointer;
+}
+
+.poller-header {
+  border-bottom: 2px solid rgb(77, 136, 214);
+}
+
+.error-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.error-details_title {
+  background: rgb(77, 136, 214);
+  color: whitesmoke;
+  border-radius: 5px 0 0 5px;
+  padding: 4px;
+  float: left;
+  font-size: 1.2rem;
+  margin: 2px 0;
+  /* margin-right: 2px; */
+}
+
+.error-details-info {
+  background: whitesmoke;
+  color: rgb(77, 136, 214);
+  padding: 4px;
+  font-size: 1.2rem;
+  border-radius: 0 5px 5px 0;
+  margin: 2px 2px;
+}
+
+.err-description {
+  font-size: 1.2rem;
+  background: whitesmoke;
+  margin: 0;
+  padding: 0;
+}
+
+.err-description .err-description-title {
+  background: rgb(77, 136, 214);
+  color: whitesmoke;
+}
