@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Error Logger",
+  "name": "Error Logger - Web app to log any type of data",
   "icons": [
     {
       "src": "favicon.ico",
