@@ -25,7 +25,8 @@ class welcome extends Component {
     this.operatorElRef = React.createRef();
     this.pollerNameElRef = React.createRef();
     this.pollerDescriptionElRef = React.createRef();
-    this.operatorNameElRef = React.createRef();
+    this.operatorLastNameElRef = React.createRef();
+    this.operatorFirstNameElRef = React.createRef();
   }
 
   logErrorHandler = () => {
@@ -41,15 +42,14 @@ class welcome extends Component {
   };
 
   modalCancelHandler = () => {
-    this.setState({ loggingError: false, addingPoller: false, addingOperator: false });
+    this.setState({
+      loggingError: false,
+      addingPoller: false,
+      addingOperator: false,
+    });
   };
 
   modalLogErrorHandler = () => {
-    console.log("current values in reference:", [
-      this.pollerIdElRef.current.value,
-      this.descriptionElRef.current.value,
-      this.operatorElRef.current.value,
-    ]);
     if (
       this.operatorElRef.current.value.length !== 0 &&
       this.descriptionElRef.current.value !== 0
@@ -57,15 +57,15 @@ class welcome extends Component {
       // first trim all white spaces
       // transform to lowercase
       const operator = this.operatorElRef.current.value;
-    const error_description = this.descriptionElRef.current.value.trim();
-    const poller_id = this.pollerIdElRef.current.value
+      const error_description = this.descriptionElRef.current.value.trim();
+      const poller_id = this.pollerIdElRef.current.value;
 
-    const newError = {
-      operator,
-      error_description,
-      poller_id
-    }
-     fetch(`${config.API_ENDPOINT}/api/errors`, {
+      const newError = {
+        operator,
+        error_description,
+        poller_id,
+      };
+      fetch(`${config.API_ENDPOINT}/api/errors`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -87,10 +87,8 @@ class welcome extends Component {
             footer: `Error: ${err}`,
           });
         });
-    
     }
     return null;
-    
   };
 
   modalAddPollerHandler = async () => {
@@ -145,17 +143,22 @@ class welcome extends Component {
   modalAddOperatorHandler = async () => {
     // check if input has a value
     if (
-      this.operatorNameElRef.current.value.length !== 0 
+      this.operatorLastNameElRef.current.value.length !== 0 &&
+      this.operatorFirstNameElRef.current.value.length !== 0
     ) {
       // first trim all white spaces
       // transform to lowercase
       const newOper = {
-        name: this.operatorNameElRef.current.value
-        .trim()
-      }
-
-
-        console.log(this.operatorNameElRef.current.value)
+        first_name: this.operatorFirstNameElRef.current.value
+          .trim()
+          .toLowerCase(),
+        last_name: this.operatorLastNameElRef.current.value
+          .trim()
+          .toLowerCase(),
+        username:
+          this.operatorFirstNameElRef.current.value.split("")[0] +
+          this.operatorLastNameElRef.current.value.trim().toLowerCase(),
+      };
 
       const results = await fetch(`${config.API_ENDPOINT}/api/operators`, {
         method: "POST",
@@ -168,8 +171,12 @@ class welcome extends Component {
           return res.json();
         })
         .then((res) => {
-          this.setState({ loggingError: false, addingPoller: false });
-          Swal.fire(`${res.name} has been added`);
+          this.setState({
+            loggingError: false,
+            addingPoller: false,
+            addingOperator: false,
+          });
+          Swal.fire(`${res.username} has been added`);
         })
         .catch((err) => {
           Swal.fire({
@@ -220,10 +227,10 @@ class welcome extends Component {
                 <label htmlFor="operator">Operator</label>
 
                 <select ref={this.operatorElRef}>
-                {operators.map((oper, i) => {
+                  {operators.map((oper, i) => {
                     return (
                       <option key={oper.id} value={oper.id}>
-                        {oper.name}
+                        {oper.username.toUpperCase()}
                       </option>
                     );
                   })}
@@ -282,11 +289,20 @@ class welcome extends Component {
           >
             <form>
               <div className="form-control">
-                <label htmlFor="operator">Operator Name</label>
+                <label htmlFor="operator">First Name</label>
                 <input
                   type="text"
                   id="operator"
-                  ref={this.operatorNameElRef}
+                  ref={this.operatorFirstNameElRef}
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label htmlFor="operator">Last Name</label>
+                <input
+                  type="text"
+                  id="operator"
+                  ref={this.operatorLastNameElRef}
                   required
                 />
               </div>

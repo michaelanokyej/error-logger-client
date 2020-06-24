@@ -29,9 +29,8 @@
   margin: 0 5px;
 }
 
-.welcome__div button:active, 
-.welcome__div button:hover
-{
+.welcome__div button:active,
+.welcome__div button:hover {
   background: rgb(85, 116, 158);
 }
 

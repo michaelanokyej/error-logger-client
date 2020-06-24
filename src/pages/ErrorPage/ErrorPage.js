@@ -7,7 +7,6 @@ const errorPage = (props) => {
   return (
     <PollerErrorContext.Consumer>
       {(context) => {
-        console.log(context);
         const objectToCsv = (data) => {
           const csvRows = [];
 
@@ -52,13 +51,12 @@ const errorPage = (props) => {
             });
             const csvObj = {
               poller: poller[0].poller_name,
-              reportedBy: oper[0].name,
+              reportedBy: oper[0].first_name.toUpperCase()+" "+oper[0].last_name.toUpperCase(),
               dateLogged: loggedOn,
               description: row.error_description,
             };
             return csvObj;
           });
-          console.log("data:", data);
           const csvData = objectToCsv(data);
           download(csvData);
         };
@@ -71,7 +69,7 @@ const errorPage = (props) => {
           );
           const pollerLink = `/pollers/${poller[0].id}`;
           const loggedOn = new Date(pollerError.posted).toLocaleString();
-          
+
           return (
             <li key={i}>
               <div>
@@ -82,12 +80,15 @@ const errorPage = (props) => {
                 </div>
                 <div>
                   <div className="error-details">
-                    <p className="error-details_title">Logged</p>
+                    <p className="error-details_title">Logged:</p>
                     <p className="error-details-info">{loggedOn}</p>
                   </div>
                   <div className="error-details">
-                    <p className="error-details_title">Reported By</p>
-                    <p className="error-details-info">{oper[0].name}</p>
+                    <p className="error-details_title">Reported By:</p>
+                    <p className="error-details-info">
+                      {oper[0].first_name.toUpperCase()}{"  "}
+                      {oper[0].last_name.toUpperCase()}
+                    </p>
                   </div>
                   <div className="err-description">
                     <p className="err-description-title">Description</p>
@@ -102,7 +103,10 @@ const errorPage = (props) => {
           <div className="error__page">
             <div className="error__page-header">
               <h1 className="error__page-header-title">Latest Poller Errors</h1>
-              <button onClick={handleCsvDownloadButton} className="error__page-header-button">
+              <button
+                onClick={handleCsvDownloadButton}
+                className="error__page-header-button"
+              >
                 Get Report
               </button>
             </div>

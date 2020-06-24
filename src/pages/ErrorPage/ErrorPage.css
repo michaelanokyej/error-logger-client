@@ -39,25 +39,21 @@
   padding: 8px;
   width: 100%;
   text-align: center;
-  -moz-box-shadow:    inset 0 0 10px #000000;
-   -webkit-box-shadow: inset 0 0 10px #000000;
-   box-shadow:         inset 0 0 10px #000000;
 }
 
 .poller__errors-list li {
   list-style: none;
   width: 95%;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   padding: 8px;
-  border: 5px outset rgb(77, 136, 214);
+  /* border: 5px outset rgb(77, 136, 214); */
+  border-left: 4px solid rgb(77, 136, 214);
+  background: rgb(229, 233, 238);
+  margin: 0px 0px 10px 0px;
 }
 
 .poller__errors-list li:nth-child(odd) {
-  background-color: rgb(222, 232, 236);
-}
-
-.poller__errors-list li:nth-child(even) {
-  background-color: rgb(176, 189, 197);
+  background-color: rgb(229, 233, 238);
 }
 
 .poller-header a {
@@ -79,19 +75,16 @@
 }
 
 .error-details_title {
-  background: rgb(77, 136, 214);
-  color: whitesmoke;
+  color: rgb(77, 136, 214);
   border-radius: 5px 0 0 5px;
   padding: 4px;
   float: left;
   font-size: 1.2rem;
   margin: 2px 0;
-  /* margin-right: 2px; */
 }
 
 .error-details-info {
-  background: whitesmoke;
-  color: rgb(77, 136, 214);
+  color: black;
   padding: 4px;
   font-size: 1.2rem;
   border-radius: 0 5px 5px 0;
@@ -103,9 +96,11 @@
   background: whitesmoke;
   margin: 0;
   padding: 0;
+  padding-bottom: 4px;
 }
 
 .err-description .err-description-title {
   background: rgb(77, 136, 214);
   color: whitesmoke;
+  padding: 4px;
 }

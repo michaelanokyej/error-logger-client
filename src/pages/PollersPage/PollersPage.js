@@ -1,7 +1,7 @@
 import React from "react";
 import "./PollersPage.css";
 import PollerErrorContext from "../../context/poller-error-context";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 const pollersPage = () => {
   return (
     <PollerErrorContext.Consumer>
@@ -11,14 +11,18 @@ const pollersPage = () => {
           return (
             <li key={i} className="poller">
               <div className="poller-details">
-                <p><span>Poller Name:</span>{poller.poller_name}</p>
-                <p><span>Poller Description:</span>{poller.description}</p>
+                <p>
+                  <span>Poller Name:</span>
+                  {poller.poller_name}
+                </p>
+                <p>
+                  <span>Poller Description:</span>
+                  {poller.description}
+                </p>
               </div>
               <Link to={pollerLink}>
-                    <button>
-                    View Errors
-                      </button>
-                  </Link>
+                <button>View Errors</button>
+              </Link>
             </li>
           );
         });

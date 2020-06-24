@@ -9,7 +9,7 @@
 
 .pollerPage h1 {
   color: rgb(77, 136, 214);
-  font-size:  2rem;
+  font-size: 2rem;
   padding: 4px;
   width: 60%;
   border-radius: 10px;
@@ -21,7 +21,7 @@
   padding: 4px;
 }
 
-.pollerPage ul li{
+.pollerPage ul li {
   background: rgb(229, 233, 238);
 }
 
@@ -45,17 +45,15 @@
 }
 
 .poller-details p {
-  font-size:  1rem;
+  font-size: 1rem;
   padding: 4px;
   color: black;
 }
 
-
-
 .poller-details p span {
   color: rgb(77, 136, 214);
   margin-right: 4px;
-  font-size:  1rem;
+  font-size: 1rem;
   padding: 2px;
   border-radius: 5px 0px 0px 5px;
 }
@@ -72,7 +70,8 @@
   cursor: pointer;
 }
 
-.poller a button:hover, .poller a button:focus {
+.poller a button:hover,
+.poller a button:focus {
   background: rgb(109, 136, 172);
   color: rgb(255, 255, 255);
 }
